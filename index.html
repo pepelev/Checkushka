@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title id="title">Checkushka</title>
+  <link rel="icon" type="image/x-icon" href="favicon.png">
+  <meta charset="UTF-8">
+  <meta name="viewport"    content="width=device-width, initial-scale=1">
+  <meta name="keywords"    content="todo-list">
+  <meta name="description" content="Create static todo lists and share them">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div id="content">
+    <header>
+      <h1 id="header">Checkushka</h1>
+    </header>
+    <section id="list-section">
+      <ul id="list">
+        <li><label><input type="checkbox">Item</label></li>
+      </ul>
+      <a href="about.html" target="_blank">How to use</a>
+      <script>
+        let text = decodeURI(window.location.hash.slice(1));
+        const nameLength = text.indexOf(":");
+        if (nameLength > 0) {
+          const name = text.slice(0, nameLength);
+          document.getElementById("header").innerText = name;
+          document.getElementById("title").innerText = `${name} - Checkushka`;
+          text = text.slice(nameLength + 1);
+        }
+        const list = document.getElementById("list");
+        const items = text.split(";")
+          .filter(item => item)
+          .map(item => {
+            const li = document.createElement("li");
+            const label = document.createElement("label");
+            const input = document.createElement("input");
+            input.setAttribute("type", "checkbox");
+            li.append(label);
+            label.append(input, item);
+            return li;
+          });
+        list.replaceChildren(...items);
+      </script>
+    </section>
+    <footer>
+      Pepelev Alexey | <a href="https://github.com/pepelev/Checkushka" target="_blank">Source on Github</a>
+    </footer>
+  </div>
+</body>
+</html>
