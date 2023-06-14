@@ -1,0 +1,42 @@
+body {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  margin: 0;
+  color-scheme: light dark;
+  color: black;
+  background: white;
+}
+@media (prefers-color-scheme: dark) {
+    body {
+        color: white;
+        background: rgb(30, 30, 30);
+    }
+}
+ul {
+  margin-top: 0.3rem;
+  list-style-type: none;
+  padding: 0;
+}
+code {
+  background: rgba(110, 110, 110, 0.4);
+}
+footer {
+  text-align: center;
+  padding: 1rem 0;
+  color: gray;
+}
+#content {
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  padding: 0 0.5rem;
+}
+#list-section {
+  flex: 1;
+}
+#about {
+  flex: 1;
+  max-width: 30rem;
+}
